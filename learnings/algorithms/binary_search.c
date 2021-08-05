@@ -10,16 +10,18 @@ int main()
     int right = n;
     int mid;
 
+    int found_position = -1;
+
     printf("Enter number to be searched: ");
     scanf("%d", &k);
 
-    for (int index = 0; index < n; index++)
+    while (left <= right)
     {
         mid = (left+right)/2;
 
         if (array[mid] == k)
         {
-            printf("\nFound %d at position %d \n", k, mid);
+            found_position = mid;
             break;
         }
         else if (array[mid] < k)
@@ -31,4 +33,9 @@ int main()
             right = mid-1;
         }
     }
+
+    if (found_position == -1)
+        printf("\nItem not found!!");
+    else
+        printf("Item found!");
 }
